@@ -12,7 +12,7 @@
       <div class="pass clear">
         <span class="span-pass"></span>
         <div class="pass-name">密码</div>
-        <input type="text" placeholder="请输入您的密码" id="pass">
+        <input type="password" placeholder="请输入您的密码" id="pass" @keyup.enter="hrefSystem">
       </div>
       <div class="submit">
         <button type="button" class="btn" @click="hrefSystem">登录</button>
@@ -23,6 +23,7 @@
  
 <script>
   import $ from 'jquery'
+  import axios from 'axios'
   export default {
     name: "LoginContent",
     data(){
@@ -52,13 +53,23 @@
     },
     methods:{
       hrefSystem:function () {
-        console.log(this);
-        console.log($("#user").val(),$("#pass").val());
-        console.log(this.$store.state.home)
 
-        this.$store.state.home = 1
-        this.$store.state.login = 0
-        console.log(this.$store.state.home)
+        let username = $("#user").val();
+        let password = $("#pass").val();
+        let data = {username,password};
+        axios.post('/api/admin/login', data)
+        .then(res=>{
+          console.log('res=>',res);
+          res = Json.parse(res);
+          if(res.code == 43001){
+
+          }
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
         this.$router.push({
           path:"/home",
           query:{
@@ -84,6 +95,7 @@
   .con{
     width: 100%;
     height: 100%;
+    padding-bottom: 40px;
     background: url("../static/img/bg.jpg") 0 0 no-repeat;
     background-size: cover;
   }
