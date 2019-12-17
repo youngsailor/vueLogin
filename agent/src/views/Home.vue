@@ -11,7 +11,10 @@
         <a-menu-item key="/home/userHome"><router-link to="/home/userHome">用户首页</router-link></a-menu-item>
         <a-menu-item key="/home/outCall"><router-link to="/home/outCall">外呼平台</router-link></a-menu-item>
         <a-menu-item key="/home/inCall"><router-link to="/home/inCall">呼入平台</router-link></a-menu-item>
+        <p slot="aa"><font :style="{color:'white'}">Tag1</font></p>
+        <a-button :style="{'float':'right','line-height':'64px'}" type="link"><a-icon type="logout" />退出</a-button>
       </a-menu>
+
     </a-layout-header>
     <a-layout-content :style="{ padding: '0 50px', marginTop: '64px' }">
       <div :style="{ margin: '16px 0' }">
@@ -41,11 +44,12 @@
 export default {
     name:"Home",
     data(){
-        let path = '/'+window.location.href.split('/').pop()
-        // 如果是首页的话，设置defaultselectkey为/userHome
+        let path = this.$route.path
+        // 如果是首页的话，设置defaultselectkey为/home/userHome
         if(path == '/'){
-          path = '/hoem/userHome'
+          path = '/home/userHome'
         }
+
         return {
           route: path
         }

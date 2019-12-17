@@ -59,23 +59,20 @@
         let data = {username,password};
         axios.post('/api/admin/login', data)
         .then(res=>{
-          console.log('res=>',res);
-          res = Json.parse(res);
-          if(res.code == 43001){
-
+          if(res.data.code !== 200){
+            this.$message.error(res.data.message);
+          }else{
+            this.$router.push({
+              path:"/home/userHome",
+              query:{
+              }
+            })
           }
-          console.log(res);
         })
         .catch(err => {
           console.log(err)
         })
 
-        this.$router.push({
-          path:"/home",
-          query:{
- 
-          }
-        })
       }
     }
   }

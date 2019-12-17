@@ -12,10 +12,7 @@ import Login from './views/Login.vue'
 export default {
   name:'App',
   data(){
-    console.log(this.$store.state.home)
     return {
-      home: this.$store.state.home,
-      login: this.$store.state.login
     }
   },
   components:{

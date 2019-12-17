@@ -2,8 +2,8 @@
     <a-layout :style="{ background: '#fff', minHeight: '750px' }">
         <a-layout>
           <a-layout-sider :style="{background:'#fff'}">
-           <div :style="{background:'rgb(176, 192, 207)','height':'39px','text-align':'center'}">
-             <p :style="{'line-height':'39px'}">任务列表</p>
+           <div :style="{background:'rgb(51, 68, 84)','height':'39px','text-align':'center'}">
+             <p :style="{'line-height':'39px','color':'#fff'}">任务列表</p>
            </div>
            <TaskList /> 
           </a-layout-sider>
@@ -11,7 +11,7 @@
             <TaskContent />
           </a-layout-content>
         </a-layout>
-        <a-layout-footer>Footer</a-layout-footer>
+        <a-layout-footer :style="{height:'24px',padding:'0px'}"></a-layout-footer>
     </a-layout>
 </template>
 <script>

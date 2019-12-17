@@ -5,13 +5,24 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    login:0,
-    home:0,
+    MyCustomerScroll: 0,
+    OutCallRecordScroll: 0,
+    OutCallReportScroll: 0,
   },
   mutations: {
+    newMyCustomerScroll(state:any,newScroll:any){
+      state.MyCustomerScroll = newScroll;
+    },
+    newOutCallRecordScroll(state:any,newScroll:any){
+      state.OutCallRecordScroll = newScroll;
+    },
+    newOutCallReportScroll(state:any,newScroll:any){
+      state.OutCallReportScroll = newScroll;
+    }
   },
   actions: {
   },
   modules: {
+
   }
 })
