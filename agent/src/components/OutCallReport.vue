@@ -1,5 +1,5 @@
 <template>
-  <a-card title="外呼报表" :style="{ 'font-size':'15px' }">
+  <a-card title="报表统计">
     <div id="components-form-demo-advanced-search">
         <a-form class="ant-advanced-search-form" :form="form" @submit="handleSearch">
         <a-row :gutter="24">

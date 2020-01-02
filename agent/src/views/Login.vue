@@ -62,6 +62,8 @@
           if(res.data.code !== 200){
             this.$message.error(res.data.message);
           }else{
+            console.log(res.data);
+            localStorage.setItem('token',res.data.data.token);
             this.$router.push({
               path:"/home/userHome",
               query:{
